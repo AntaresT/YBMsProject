@@ -43,27 +43,28 @@ export default class Main extends Component {
 						<Carousel.Item>
 						 <img
 						   className="d-block w-100"
-						   src="{movies.poster_path}"
+						   src="{}"
 						   alt="First slide"
 						 />
-						 <Carousel.Caption>
+						<Carousel.Caption>
 						   <h3>Top 1 Movie</h3>
-						   <p>{movies.overview}</p>
-						 </Carousel.Caption>
+						   <p>{}</p>
+							</Carousel.Caption>
 						</Carousel.Item>
-
+						
+						
 						<Carousel.Item>
 						 <img
 						   className="d-block w-100"
 						   src="{series.poster_path}"
 						   alt="Second slide"
 						 />
-						 <Carousel.Caption>
+							<Carousel.Caption>
 						   <h3>Top 1 Serie</h3>
-						   <p>{series.overview}</p>
+						   <p>{}</p>
 						 </Carousel.Caption>
 						</Carousel.Item>
-
+						
 					</Carousel>
 				</div> //Fim Div Carousel
 
