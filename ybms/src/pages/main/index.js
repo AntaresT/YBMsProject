@@ -24,21 +24,28 @@ export default class Main extends Component {
 	render(){
 		return (
 			<html>
-			//<div className="col-md-6">
-				<div className="movies-list">
-					{this.state.movies.map(movies => (
-						<h2 key={movies.id}>{movies.title}</h2>
-					))}
-				</div>
-			//</div>
+			<h1>MOVIES</h1>
 
-			//<div className="col-md-6">
-				<div className="series-list">
-					{this.state.series.map(series => (
-						<h2 key={series.id}>{series.name}</h2>
-					))}
-				</div>
-			//</div>
+			<div className="movies-list">
+				{this.state.movies.map(movies => (
+					<div className="itemMovie">
+						<a href=""><img src={movies.poster_path}></img></a>
+						<h3 key={movies.id}>{movies.title}</h3>
+					</div>
+				))}
+			</div>
+			============================================
+			<br />
+			<h1>Series</h1>
+			<div className="series-list">
+				{this.state.series.map(series => (
+					<div className="itemSerie">
+						<a href=""><img src="{series.poster_path}"></img></a>
+						<h3 key={series.id}>{series.name}</h3>
+					</div>
+				))}
+			</div>
+		
 			</html>
 
 		);
