@@ -1,0 +1,95 @@
+.movies-title h1{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.movies-list{
+	max-width: 400px;
+	margin: 20px auto 0;
+	padding: 0 20px;
+}
+
+.movies-list h3{
+	text-align: center;
+}
+
+.movies-list article{
+	background: #fff;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
+.movies-list article p{
+	font-size: 16px;
+	color: #999;
+	margin-top: 5px;
+	line-height: 24px;
+}
+
+.movies-list article a{
+	height: 42px;
+	border-radius: 5px;
+	border: 2px solid #0abde3;
+	background: none;
+	margin-top: 10px;
+	color: #0abde3;
+	font-weight: bold;
+	font-size: 16px;
+	text-decoration: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+
+.movies-item img{
+	margin-left: 100px;
+}
+
+/*=========================== Series =================================*/
+
+.series-list{
+	max-width: 400px;
+	margin: 20px auto 0;
+	padding: 0 20px;
+}
+.series-list h3{
+	text-align: center;
+}
+
+.series-list article{
+	background: #fff;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
+.series-list article p{
+	font-size: 16px;
+	color: #999;
+	margin-top: 5px;
+	line-height: 24px;
+}
+
+.series-list article a{
+	height: 42px;
+	border-radius: 5px;
+	border: 2px solid #0abde3;
+	background: none;
+	margin-top: 10px;
+	color: #0abde3;
+	font-weight: bold;
+	font-size: 16px;
+	text-decoration: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+.series-item img{
+	margin-left: 100px;
+}

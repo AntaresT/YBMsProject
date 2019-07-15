@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Carousel from 'react-bootstrap/Carousel'
-
+import "./styles.css";
 
 
 export default class Main extends Component {
@@ -22,28 +22,37 @@ export default class Main extends Component {
 		//Chamada da API TMDB
 		const responseMovie = await api.get('/movie/top_rated?api_key=7d42357a7fa9d5924885c5ef46d7715f');
 		const responseSerie = await api.get('/tv/top_rated?api_key=7d42357a7fa9d5924885c5ef46d7715f')
-		
+
 		//Retorno de Requisição no Console
 		console.log(responseMovie.data.results);
 		console.log(responseSerie.data.results);
 
 		//Preenchendo os vetores do state com informações vindas da API
+		//Com isso, nao é necessario usar o this.state. Direto no 'movies' ou 'series'
 		this.setState({movies: responseMovie.data.results});
 		this.setState({series: responseSerie.data.results});
 	}
 
 	render(){
+
+		//Necessário fazer a chamada dos vetores no render pra utilizar
+		const {movies} = this.state;
+		const {series} = this.state;
+
 		return (
 			<html>
-			<div> //Div Global
 
-				<div> //Div Carousel
+
+			<div> 
+
+				<div> 
 					<Carousel>
 
 						<Carousel.Item>
 						 <img
+						 	keyFav="{movies.id}"
 						   className="d-block w-100"
-						   src="{}"
+						   src={`https://image.tmdb.org/t/p/w154/${movies.poster_path}`}
 						   alt="First slide"
 						 />
 						<Carousel.Caption>
@@ -55,8 +64,9 @@ export default class Main extends Component {
 						
 						<Carousel.Item>
 						 <img
+						 	keyFav="{series.id}"
 						   className="d-block w-100"
-						   src="{series.poster_path}"
+						   src={`https://image.tmdb.org/t/p/w154/${series.poster_path}`}
 						   alt="Second slide"
 						 />
 							<Carousel.Caption>
@@ -66,39 +76,55 @@ export default class Main extends Component {
 						</Carousel.Item>
 						
 					</Carousel>
-				</div> //Fim Div Carousel
+				</div> 
 
-				<div> //Div Container
+				<button>Serie</button>
+				<button>Movies</button>
+
+
+				<div> 
 					<Container>
 						<Row>
 							<Col>
-								<h1>MOVIES</h1>
+
+								<h1 className="movies-title">MOVIES</h1>
 								<div className="movies-list">
-									{this.state.movies.map(movies => (
-										<div className="itemMovie">
-											<a href=""><img src={movies.backdrop_path}/></a>
-											<h3 key={movies.id}>{movies.title}</h3>
+									{movies.map(movies => (
+
+										<div key="{movies.id}" className="movies-item">
+										<article>
+											<img src={`https://image.tmdb.org/t/p/w154/${movies.poster_path}`}/>
+											<h3>{movies.title}</h3>
+											<a href="">Details</a>
+										</article>
 										</div>
+
 									))}
 								</div>
+
 							</Col>
 
 							<Col>
 								<h1>Series</h1>
 								<div className="series-list">
-									{this.state.series.map(series => (
-										<div className="itemSerie">
-											<a href=""><img src="{series.backdrop_path}"/></a>
-											<h3 key={series.id}>{series.name}</h3>
+									{series.map(series => (
+
+										<div key="{series.id}" className="series-item">
+										<article>
+											<img src={`https://image.tmdb.org/t/p/w154/${series.poster_path}`}/>
+											<h3 >{series.name}</h3>
+											<a href="">Details</a>
+										</article>
 										</div>
+
 									))}
 								</div>
 							</Col>
 						</Row>
 					</Container>
-				</div> //Fim Div Container
+				</div> 
 
-			</div> //Fim Div Global
+			</div>
 			</html>
 
 		);
